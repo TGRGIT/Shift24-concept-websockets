@@ -1,0 +1,27 @@
+<h1>Listing pairings_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pairing</th>
+      <th>Player</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pairings_players.each do |pairings_player| %>
+      <tr>
+        <td><%= pairings_player.pairing %></td>
+        <td><%= pairings_player.player %></td>
+        <td><%= link_to 'Show', pairings_player %></td>
+        <td><%= link_to 'Edit', edit_pairings_player_path(pairings_player) %></td>
+        <td><%= link_to 'Destroy', pairings_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pairings player', new_pairings_player_path %>

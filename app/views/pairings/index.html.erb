@@ -1,0 +1,30 @@
+<h1>Listing pairings</h1>
+
+<%= link_to "Log out", destroy_player_session_path, :method => :delete  %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timeout</th>
+      <th>Lockdownscore</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pairings.each do |pairing| %>
+      <tr>
+        <td><%= pairing.timeout %></td>
+        <td><%= pairing.lockdownScore %></td>
+        <td><%= " #{pairing.players.first.name} & #{pairing.players.last.name} " %></td>
+        <td><%= link_to 'Show', pairing %></td>
+        <td><%= link_to 'Edit', edit_pairing_path(pairing) %></td>
+        <td><%= link_to 'Destroy', pairing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pairing', new_pairing_path %>

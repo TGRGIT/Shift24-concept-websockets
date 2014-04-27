@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Timeout:</strong>
+  <%= @pairing.timeout %>
+</p>
+
+<p>
+  <strong>Lockdownscore:</strong>
+  <%= @pairing.lockdownScore %>
+</p>
+
+<%= link_to 'Edit', edit_pairing_path(@pairing) %> |
+<%= link_to 'Back', pairings_path %>

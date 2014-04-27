@@ -1,0 +1,25 @@
+<%= form_for(@pairing) do |f| %>
+  <% if @pairing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pairing.errors.count, "error") %> prohibited this pairing from being saved:</h2>
+
+      <ul>
+      <% @pairing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <select name='player1'>
+      <%= options_from_collection_for_select(Player.all, :id, :name) %>
+    </select>
+
+    <select name='player2'>
+      <%= options_from_collection_for_select(Player.all, :id, :name) %>
+    </select>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
